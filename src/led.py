@@ -2,7 +2,7 @@ import time
 import json
 from boot import CONFIG, LOGGER
 from mqtt import MqttClient
-from ring import RingController, EFFECT_CONNECTING, EFFECT_NONE
+from ring import RingController, EFFECT_CONNECTING, EFFECT_NONE, EFFECT_MANUAL
 
 ring = RingController()
 ring.effect = EFFECT_CONNECTING
@@ -15,14 +15,14 @@ def onCommandEvent(topic, body):
     if 'color' in body:
       color = body['color']
       ring.color = (
-        int(color[r]),
-        int(color[g]),
-        int(color[b])
+        int(color['r']),
+        int(color['g']),
+        int(color['b'])
       )
     if 'brightness' in body:
       brightness = float(body['brightness'])/255.0
       ring.brightness = brightness
-    ring.effect = body['effect'] if 'effect' in body else 'placeholder'
+    ring.effect = body['effect'] if 'effect' in body else EFFECT_MANUAL
   else:
     ring.effect = EFFECT_NONE
   sendState()
@@ -39,8 +39,12 @@ def sendState():
   state = "OFF" if ring.effect == EFFECT_NONE else "ON"
   mqtt.publish(CONFIG['light']['state_topic'], json.dumps({
     "state": state,
-    "brightness": ring.brightness,
-    ""
+    "brightness": ring.brightness * 255,
+    "color": {
+      "r": ring.color[0],
+      "g": ring.color[1],
+      "b": ring.color[2]
+    }
   }))
 
 try:
@@ -48,4 +52,5 @@ try:
   while True:
     ring.update()
 except KeyboardInterrupt:
+  ring.exit()
   pass

@@ -65,8 +65,11 @@ class RingController:
     self.step = 0.015
     self.counter = 0
     self.effect = EFFECT_NONE
-    self.color = (255, 255, 255)
-    self.brightness = 1.0
+    self.color = (0, 0, 0)
+    self.brightness = 0.5
+
+  def exit(self):
+    self.ring.clear()
 
   def update(self):
     if self.progress == 1.0 or self.progress == 0.0:
