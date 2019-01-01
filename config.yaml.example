@@ -1,0 +1,9 @@
+mqtt:
+  host: ''
+  username: ''
+  password: ''
+  port: 0
+
+light:
+  command_topic: 'home/kitchen/light/cat_feeder/set'
+  state_topic: 'home/kitchen/light/cat_feeder'
