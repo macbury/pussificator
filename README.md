@@ -1,11 +1,11 @@
 #### Requirements
 OpenCV on Raspberry Pi
 
-```apt-get install libopencv-dev python3-opencv python3-dev```
+```sudo apt-get install python2.7-dev python3-dev```
 
 
 ```
-pip3 install -r requirements.txt
+sudo pip3 install -r requirements.txt
 ```
 
 ### References

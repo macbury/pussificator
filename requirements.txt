@@ -3,3 +3,5 @@ ruamel.yaml==0.15.34
 rpi_ws281x==4.1.0
 adafruit-circuitpython-neopixel==3.3.4
 RPi.GPIO==0.6.5
+picamera==1.13
+numpy==1.15.4
