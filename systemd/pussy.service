@@ -1,0 +1,17 @@
+[Unit]
+Description=Pussycat detector Service
+After=network.target ntpdate.service
+
+[Service]
+Environment=PATH=/home/pi/cf2:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=/usr/bin/python3 -u src/pussy.py
+WorkingDirectory=/home/pi/cf2/
+StandardOutput=inherit
+StandardError=inherit
+StartLimitBurst=1000
+Restart=always
+RestartSec=90
+User=root
+
+[Install]
+WantedBy=multi-user.target

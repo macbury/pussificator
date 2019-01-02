@@ -5,3 +5,5 @@ adafruit-circuitpython-neopixel==3.3.4
 RPi.GPIO==0.6.5
 picamera==1.13
 numpy==1.15.4
+opencv-python-headless>=3.4
+opencv-contrib-python-headless>=3.4

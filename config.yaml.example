@@ -10,3 +10,6 @@ light:
 
 servo:
   command_topic: 'home/kitchen/servo/cat_feeder/set'
+
+pussy:
+  topic: 'home/kitchen/camera/cat_feeder'
