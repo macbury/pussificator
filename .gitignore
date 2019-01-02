@@ -99,7 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
-
+*.xml
 credentials.h
 config.yaml
 .DS_Store

@@ -90,4 +90,4 @@ class RingController:
     else:
       self.ring.clear()
 
-    time.sleep(1.0/60.0)
+    time.sleep(1.0/30.0)

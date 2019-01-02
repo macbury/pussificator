@@ -2,7 +2,7 @@ import logging
 import os
 from ruamel.yaml import YAML
 
-LOGGER = logging.getLogger('lamp')
+LOGGER = logging.getLogger('pussy')
 logging.basicConfig(
   level=logging.INFO,
   format="[%(asctime)s] %(levelname)s:%(name)s:%(message)s"
