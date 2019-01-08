@@ -5,7 +5,7 @@ After=network.target ntpdate.service
 [Service]
 Environment=PATH=/home/pi/cf2:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ExecStart=/usr/bin/python3 -u src/pussy.py
-WorkingDirectory=/home/pi/cf2/
+WorkingDirectory=/home/pi/pussificator/
 StandardOutput=inherit
 StandardError=inherit
 StartLimitBurst=1000
