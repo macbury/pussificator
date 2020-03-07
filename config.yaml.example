@@ -4,12 +4,14 @@ mqtt:
   password: ''
   port: 0
 
+motion:
+  availability_topic: home/kitchen/puss_feeder
+  state_topic: home/kitchen/puss_feeder/motion
+
 light:
-  command_topic: 'home/kitchen/light/cat_feeder/set'
-  state_topic: 'home/kitchen/light/cat_feeder'
+  command_topic: 'home/kitchen/puss_feeder/light/set'
+  state_topic: 'home/kitchen/puss_feeder/light'
 
 servo:
-  command_topic: 'home/kitchen/servo/cat_feeder/set'
-
-pussy:
-  topic: 'home/kitchen/camera/cat_feeder'
+  command_topic: 'home/kitchen/puss_feeder/dispense_food/set'
+  state_topic: home/kitchen/puss_feeder/dispense_food
