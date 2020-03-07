@@ -29,7 +29,7 @@ def lerpColor(progress, fromColor, toColor):
 class Ring:
   def __init__(self, pixelCount=16):
     self.pixelCount = 16
-    self.pixels = neopixel.NeoPixel(board.D18, pixelCount, auto_write=False)
+    self.pixels = neopixel.NeoPixel(board.D12, pixelCount, auto_write=False)
     self.clear()
 
   def clear(self):

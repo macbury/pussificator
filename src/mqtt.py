@@ -44,6 +44,11 @@ class MqttClient(object):
     if msg.topic in self.subscriptions:
       LOGGER.info("Triggering callbacks for: {}".format(msg))
       for callback in self.subscriptions[msg.topic]:
-        callback(msg.topic, json.loads(msg.payload.decode('UTF-8')))
+        try:
+          callback(msg.topic, json.loads(msg.payload.decode('UTF-8')))
+        except json.decoder.JSONDecodeError:
+          LOGGER.info("Invalid json: {}".format(msg.topic))
+          callback(msg.topic, {})
+          
     else:
       LOGGER.info("Got message: {}".format(msg))
